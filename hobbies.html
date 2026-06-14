@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعم الهوايات | مبادرة أثر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d4633;
+            --secondary-color: #2e8b57;
+            --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--light-bg); color: var(--text-dark); padding: 20px 5%; text-align: center; }
+        
+        .container {
+            max-width: 600px;
+            background: var(--white);
+            margin: 40px auto;
+            padding: 40px 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(13, 70, 51, 0.08);
+        }
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .sub-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        h1 { color: var(--primary-color); font-size: 2rem; margin-bottom: 15px; }
+        .intro { font-size: 1.1rem; color: #555; margin-bottom: 30px; }
+        
+        .info-list {
+            text-align: right;
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            list-style: none;
+        }
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-list li i { color: var(--secondary-color); font-size: 1.2rem; }
+
+        .btn-join-wa {
+            display: block;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: var(--white);
+            padding: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-join-wa:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+
+    <div class="container">
+        <img src="A.jpg" class="sub-logo" alt="شعار الهوايات">
+        
+        <h1>اكتشاف ودعم الهوايات</h1>
+        <p class="intro">الوقت قد حان لتنفض الغبار عن مواهبك الدفينة! هنا نساعدك على اكتشاف شغفك الفني، الإبداعي، أو اليدوي وتطويره بشكل حقيقي.</p>
+        
+        <ul class="info-list">
+            <li><i class="fa-solid fa-circle-check"></i> ورش عمل لتعليم الفنون التشكيلية، الحرف اليدوية، والخط العربي.</li>
+            <li><i class="fa-solid fa-circle-check"></i> مساحات لمشاركة شغفك مع مهتمين آخرين بنفس مجالك المفضل.</li>
+            <li><i class="fa-solid fa-circle-check"></i> معارض دورية مصغرة لعرض أعمال المبدعين والموهوبين بالمبادرة.</li>
+            <li><i class="fa-solid fa-circle-check"></i> إمكانية تحويل هوايتك إلى مصدر دخل إضافي يساعدك في حياتك اليومية.</li>
+        </ul>
+
+        <a href="https://wa.me/201200109995?text=أريد%20الانضمام%20لجروب%20دعم%20الهوايات" class="btn-join-wa" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> انضم لجروب دعم الهوايات
+        </a>
+    </div>
+
+</body>
+</html>

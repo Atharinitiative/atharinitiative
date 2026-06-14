@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>علوم الحاسب والكمبيوتر | مبادرة أثر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d4633;
+            --secondary-color: #2e8b57;
+            --accent-color: #ebd46e;
+            --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --shadow: 0 10px 30px rgba(13, 70, 51, 0.08);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+
+        .navbar {
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .btn-back { text-decoration: none; color: var(--primary-color); font-weight: 700; display: flex; align-items: center; gap: 8px; transition: var(--transition); }
+        .btn-back:hover { color: var(--secondary-color); }
+        .navbar .logo img { height: 50px; }
+
+        .hero { width: 100%; background-color: var(--white); border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; overflow: hidden; box-shadow: var(--shadow); }
+        .hero-banner { width: 100%; height: auto; max-height: 500px; object-fit: fill; display: block; }
+
+        .container { padding: 60px 8%; }
+
+        .roadmap-container { background: var(--white); border-radius: 30px; padding: 40px; box-shadow: var(--shadow); margin-bottom: 50px; border: 1px solid rgba(13, 70, 51, 0.05); }
+        .roadmap-title { text-align: center; color: var(--primary-color); font-size: 1.8rem; font-weight: 800; margin-bottom: 35px; display: flex; justify-content: center; align-items: center; gap: 12px; }
+
+        .roadmap-step { background: var(--light-bg); border-radius: 20px; padding: 25px; margin-bottom: 25px; border-right: 6px solid var(--secondary-color); }
+        .roadmap-step.step-two { border-right-color: var(--primary-color); }
+        .roadmap-step h3 { color: var(--primary-color); font-weight: 700; margin-bottom: 15px; font-size: 1.3rem; }
+
+        .badge-list { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px; }
+        .badge-item { background: var(--white); padding: 8px 18px; border-radius: 30px; font-size: 0.95rem; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03); display: flex; align-items: center; gap: 8px; }
+        .badge-item i { color: var(--secondary-color); }
+
+        .section-subtitle { color: var(--primary-color); font-size: 1.8rem; font-weight: 800; margin-bottom: 30px; }
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .active-course-card { background: var(--white); border-radius: 24px; padding: 35px 30px; box-shadow: var(--shadow); border: 1px solid rgba(13, 70, 51, 0.08); display: flex; flex-direction: column; }
+
+        .card-meta { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .card-meta .icon { width: 60px; height: 60px; background: #e8f4ed; color: var(--secondary-color); border-radius: 16px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; }
+        .card-meta h2 { color: var(--primary-color); font-size: 1.4rem; font-weight: 800; line-height: 1.4; }
+
+        .cert-badge { background-color: #fff4e5; color: #b76e00; border: 1px solid #ffe3be; padding: 8px 15px; border-radius: 12px; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; }
+        .no-experience-badge { background-color: #edf2f7; color: var(--primary-color); border: 1px solid #cbd5e0; padding: 8px 15px; border-radius: 12px; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; }
+        .active-course-card p { color: #555; font-size: 0.95rem; margin-bottom: 20px; text-align: justify; }
+        
+        .features-list { list-style: none; border-top: 1px dashed #e2e8f0; padding-top: 15px; }
+        .features-list li { font-size: 0.95rem; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; color: #4a5568; }
+        .features-list li i { color: var(--secondary-color); margin-top: 3px; }
+
+        .unified-form-section { background: var(--white); padding: 40px; border-radius: 30px; box-shadow: var(--shadow); margin-bottom: 60px; border: 2px solid var(--secondary-color); }
+        .unified-form-section h2 { color: var(--primary-color); font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; text-align: center; }
+        .unified-form-section p.intro-text { color: #555; font-size: 1rem; margin-bottom: 30px; text-align: center; }
+
+        .payment-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; text-align: right; }
+        .payment-card { background-color: #f7fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 16px; }
+        .payment-card.center { border-right: 5px solid var(--secondary-color); }
+        .payment-card.online { border-right: 5px solid #3182ce; }
+        .payment-card h4 { margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .payment-card ul { list-style: none; margin-top: 10px; padding-right: 15px; }
+        .payment-card ul li { font-size: 0.9rem; margin-bottom: 5px; position: relative; color: #4a5568; }
+        .payment-card ul li::before { content: "•"; color: #3182ce; position: absolute; right: -15px; font-weight: bold; }
+
+        .registration-action-box { text-align: center; padding: 40px 20px; background: #f7fafc; border-radius: 20px; border: 1px dashed #cbd5e0; margin-top: 30px; }
+        .btn-register-now { display: inline-flex; align-items: center; gap: 12px; justify-content: center; background-color: var(--secondary-color); color: var(--white); text-decoration: none; padding: 18px 45px; border-radius: 14px; font-size: 1.25rem; font-weight: 800; box-shadow: 0 8px 25px rgba(46, 139, 87, 0.25); transition: var(--transition); }
+        .btn-register-now:hover { background-color: var(--primary-color); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(13, 70, 51, 0.3); }
+
+        .upcoming-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .upcoming-card { background: var(--white); border-radius: 20px; padding: 30px 20px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.03); text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
+        .upcoming-card:hover { transform: scale(1.03); border-color: var(--secondary-color); }
+        .upcoming-card .icon { font-size: 2.2rem; color: #a0aec0; margin-bottom: 15px; }
+        .upcoming-card h4 { color: var(--primary-color); font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .upcoming-card p { font-size: 0.85rem; color: #718096; line-height: 1.4; margin-bottom: 15px; }
+        .upcoming-card .status-tag { font-size: 0.75rem; color: var(--secondary-color); background: #e8f4ed; padding: 4px 12px; border-radius: 12px; display: inline-block; font-weight: 700; }
+
+        footer { background-color: var(--primary-color); color: var(--white); padding: 50px 20px; text-align: center; border-top: 4px solid var(--secondary-color); margin-top: 80px; }
+        .footer-content { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .supervisor-box { background: #ffffff; padding: 20px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 15px; width: 100%; max-width: 320px; }
+        .supervisor-box h4 { font-size: 1.1rem; font-weight: 700; color: var(--primary-color); }
+        .supervisor-logo { width: 100%; max-width: 240px; height: auto; border-radius: 12px; display: block; }
+        .footer-copyright { font-size: 0.95rem; opacity: 0.8; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; width: 100%; }
+
+        @media (max-width: 768px) { .container { padding: 40px 5% } .courses-grid { grid-template-columns: 1fr } .btn-register-now { width: 100%; padding: 15px 20px; font-size: 1.1rem } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="courses.html" class="btn-back"><i class="fa-solid fa-arrow-right"></i> العودة لصفحة المجالات</a>
+        <div class="logo"><img src="A.jpg" alt="شعار مبادرة أثر"></div>
+    </nav>
+
+    <section class="hero"><img src="ChatGPT Image Jun 14, 2026, 01_38_07 AM.png" alt="بانر مبادرة أثر" class="hero-banner"></section>
+
+    <div class="container">
+        
+        <!-- أولاً: خريطة طريق دراسة المسار الصحيح -->
+        <section class="roadmap-container">
+            <h2 class="roadmap-title"><i class="fa-solid fa-route"></i> المسار الصحيح لدراسة علوم الحاسب</h2>
+            <div class="roadmap-step">
+                <h3>أولاً: الأساسيات (المرحلة الحالية)</h3>
+                <p>البنية التحتية والمفاهيم الأولية لكل متعلم؛ لابد من فهم تكوين الحاسوب وتطبيقاته قبل الدخول في التخصصات المعقدة.</p>
+                <div class="badge-list">
+                    <div class="badge-item"><i class="fa-solid fa-laptop"></i> أساسيات السوفت وير</div>
+                    <div class="badge-item"><i class="fa-solid fa-microchip"></i> أساسيات الهاردوير</div>
+                </div>
+            </div>
+            <div class="roadmap-step step-two">
+                <h3>ثانياً: اختيار المسار والتخصص (Specialization)</h3>
+                <p>بعد إنهاء مرحلة الأساسيات بنجاح، يختار الطالب أحد المسارات المتقدمة لتأهيله المباشر لسوق العمل.</p>
+            </div>
+        </section>
+
+        <!-- ثانياً: تفاصيل الكورسات الشاملة والتفصيلية بالكامل -->
+        <h3 class="section-subtitle">تفاصيل الكورسات المتاحة حالياً</h3>
+        <section class="courses-grid">
+            
+            <!-- كورس السوفت وير بالتفصيل الكامل -->
+            <div class="active-course-card">
+                <div class="card-meta">
+                    <div class="icon"><i class="fa-solid fa-laptop"></i></div>
+                    <h2>أساسيات السوفت وير<br><small style="font-size:0.85rem; color:#718096; font-weight: 600;">(ICDL Shortcut)</small></h2>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div class="cert-badge"><i class="fa-solid fa-certificate"></i> مستند إلى منهج ICDL الدولي</div>
+                    <div class="no-experience-badge"><i class="fa-solid fa-star"></i> لا يتطلب أي خبرة سابقة</div>
+                </div>
+                <p>كورس مكثّف يركز على المهارات العملية في عالم التحول الرقمي بدون حشو؛ لتتمكن من إدارة ملفاتك باحترافية وتطوير استخدامك اليومي للكمبيوتر.</p>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check-double"></i> <strong>المحتوى:</strong> ويندوز، إنترنت، Microsoft Word، و Microsoft Excel.</li>
+                    <li><i class="fa-solid fa-users"></i> <strong>الفئة المستهدفة:</strong> المبتدئين تماماً (للجنسين من سن 10 سنوات فما فوق).</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> <strong>المحاضرات:</strong> 7 محاضرات عمليّة مركزة.</li>
+                    <li><i class="fa-solid fa-calendar-days"></i> <strong>البداية:</strong> السبت 20/06/2026.</li>
+                    <li><i class="fa-solid fa-location-dot"></i> <strong>السنتر:</strong> السبت 7:30 مساءً (مدرسة رمسيس الخاصة - سيدي بشر).</li>
+                    <li><i class="fa-solid fa-video"></i> <strong>أونلاين:</strong> السبت 9:30 مساءً مباشرة عبر (Zoom).</li>
+                    <li><i class="fa-solid fa-tag"></i> 10 جنيهات للحصة (+10 جنيهات رسوم تشغيل في السنتر).</li>
+                </ul>
+            </div>
+
+            <!-- كورس الهاردوير بالتفصيل الكامل -->
+            <div class="active-course-card">
+                <div class="card-meta">
+                    <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h2>أساسيات الهاردوير<br><small style="font-size:0.85rem; color:#718096; font-weight: 600;">(CompTIA A+ Intro)</small></h2>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div class="cert-badge"><i class="fa-solid fa-certificate"></i> مستند إلى منهج CompTIA A+ العالمي</div>
+                    <div class="no-experience-badge"><i class="fa-solid fa-star"></i> لا يتطلب أي خبرة سابقة</div>
+                </div>
+                <p>كورس أكاديمي متميز يركز على الفهم المعرفي والهندسي المتكامل لكل مكونات الحاسب الآلي ووظائفها الفنية مع عرض مرئي فائق الوضوح.</p>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check-double"></i> <strong>المحتوى:</strong> دراسة نظرية وهندسية دقيقة لقطع الكمبيوتر وعرضها بصرياً.</li>
+                    <li><i class="fa-solid fa-users"></i> <strong>الفئة المستهدفة:</strong> للجنسين ولكافة الأعمار والمهتمين بالصيانة (من سن 10 سنوات).</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> <strong>المحاضرات:</strong> 5 محاضرات غنية ومحدثة.</li>
+                    <li><i class="fa-solid fa-calendar-days"></i> <strong>البداية:</strong> الأحد 21/06/2026.</li>
+                    <li><i class="fa-solid fa-location-dot"></i> <strong>السنتر:</strong> الأحد 7:30 مساءً (مدرسة رمسيس الخاصة - سيدي بشر).</li>
+                    <li><i class="fa-solid fa-video"></i> <strong>أونلاين:</strong> الأحد 9:30 مساءً مباشرة عبر (Zoom).</li>
+                    <li><i class="fa-solid fa-tag"></i> 10 جنيهات للحصة (+10 جنيهات رسوم تشغيل في السنتر).</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- ثالثاً: نموذج التسجيل الموحد وطرق الدفع -->
+        <section class="unified-form-section">
+            <h2><i class="fa-solid fa-user-plus" style="color: var(--secondary-color);"></i> نموذج التسجيل وطرق الدفع</h2>
+            <p class="intro-text">يرجى مراجعة التعليمات ثم الضغط على الزر بالأسفل لتعبئة الاستمارة.</p>
+            
+            <div class="payment-methods">
+                <div class="payment-card center">
+                    <h4 style="color: var(--primary-color);"><i class="fa-solid fa-building-user"></i> في السنتر:</h4>
+                    <p>نقداً بمدرسة رمسيس الخاصة مع مطلع كل حصة.</p>
+                </div>
+                <div class="payment-card online">
+                    <h4 style="color: #3182ce;"><i class="fa-solid fa-mobile-screen"></i> أونلاين (فودافون كاش):</h4>
+                    <p>التحويل على <strong>01200109995</strong> (بالحصة، بالشهر، أو بالكورس).</p>
+                </div>
+            </div>
+
+            <div class="registration-action-box">
+                <a href="https://forms.gle/A5e4GSXdLmeRRErA8" target="_blank" class="btn-register-now">
+                    <i class="fa-solid fa-file-pen"></i> اضغط هنا لتسجيل بياناتك وحجز مقعدك
+                </a>
+            </div>
+        </section>
+
+        <!-- رابعاً: المسارات المستقبلية (مع إضافة مجالات أكثر وتخصص البرمجة العام) -->
+        <h3 class="section-subtitle">المسارات التخصصية القادمة</h3>
+        <section class="upcoming-grid">
+            
+            <div class="upcoming-card">
+                <div class="icon"><i class="fa-solid fa-terminal"></i></div>
+                <h4>مجال البرمجة العام</h4>
+                <p>تأسيس برمجي متكامل لفهم كتابة الأكواد، التفكير المنطقي وحل المشكلات (Problem Solving).</p>
+                <div class="status-tag">قريباً</div>
+            </div>
+
+            <div class="upcoming-card">
+                <div class="icon"><i class="fa-solid fa-code"></i></div>
+                <h4>برمجة الويب (Front-End)</h4>
+                <p>تعلم بناء واجهات المواقع التفاعلية باستخدام HTML, CSS, JS.</p>
+                <div class="status-tag">قريباً</div>
+            </div>
+
+            <div class="upcoming-card">
+                <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h4>الأمن السيبراني</h4>
+                <p>أساسيات حماية البيانات والأنظمة من الاختراق والتهديدات الرقمية.</p>
+                <div class="status-tag">قريباً</div>
+            </div>
+
+            <div class="upcoming-card">
+                <div class="icon"><i class="fa-solid fa-database"></i></div>
+                <h4>تحليل البيانات</h4>
+                <p>استخراج المعلومات من البيانات لدعم اتخاذ القرارات الذكية.</p>
+                <div class="status-tag">قريباً</div>
+            </div>
+
+            <div class="upcoming-card">
+                <div class="icon"><i class="fa-solid fa-robot"></i></div>
+                <h4>الذكاء الاصطناعي</h4>
+                <p>مقدمة في تعلم الآلة وكيفية بناء نماذج ذكية بسيطة.</p>
+                <div class="status-tag">قريباً</div>
+            </div>
+
+            <div class="upcoming-card">
+                <div class="icon"><i class="fa-solid fa-mobile-button"></i></div>
+                <h4>تطبيقات الموبايل</h4>
+                <p>برمجة تطبيقات الأندرويد والـ iOS بأحدث التقنيات.</p>
+                <div class="status-tag">قريباً</div>
+            </div>
+
+            <div class="upcoming-card">
+                <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <h4>تصميم UI/UX</h4>
+                <p>فن تصميم تجربة المستخدم وواجهات البرامج بشكل احترافي.</p>
+                <div class="status-tag">قريباً</div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="supervisor-box">
+                <h4>المبادرة تحت إشراف</h4>
+                <img src="White.png" alt="Supervisor Logo" class="supervisor-logo">
+            </div>
+            <div class="footer-copyright">
+                <p>جميع الحقوق محفوظة لمبادرة أثر © 2026 - لأن الإنسان أثر</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

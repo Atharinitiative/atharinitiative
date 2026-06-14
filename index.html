@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبادرة أثر | لأن الإنسان أثر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d4633;
+            --secondary-color: #2e8b57;
+            --accent-color: #8fbc8f;
+            --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --shadow: 0 10px 30px rgba(13, 70, 51, 0.08);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            display: block;
+            background-color: var(--white);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: fill;
+            display: block;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .about-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Activities Section */
+        .activities {
+            padding: 80px 8%;
+            background-color: var(--white);
+            border-radius: 50px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .activity-card {
+            background: var(--light-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid rgba(13, 70, 51, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(13, 70, 51, 0.12);
+        }
+
+        .activity-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .activity-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .activity-card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .btn-activity {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .activity-card:hover .btn-activity {
+            background-color: var(--secondary-color);
+        }
+
+        /* WhatsApp Section */
+        .whatsapp-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .whatsapp-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .wa-card {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+        }
+
+        .wa-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .wa-card i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .wa-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .wa-card p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+        }
+
+        .wa-card .btn-wa {
+            display: inline-block;
+            background: var(--white);
+            color: #128c7e;
+            padding: 15px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 15px;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .wa-card .btn-wa:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .supervisor-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .supervisor-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .supervisor-logo {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .footer-copyright {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 5%; }
+            .nav-links { gap: 15px; }
+            .section-title { font-size: 1.8rem; }
+            .supervisor-box { padding: 15px; max-width: 280px; }
+            .supervisor-logo { max-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="A.jpg" alt="شعار مبادرة أثر">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">عنّا</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <img src="ChatGPT Image Jun 8, 2026, 09_04_27 PM.png" alt="بانر مبادرة أثر" class="hero-banner">
+    </section>
+
+    <section class="about">
+        <h2 class="section-title">عن مبادرة أثر</h2>
+        <div class="about-cards">
+            <div class="about-card">
+                <i class="fa-solid fa-coins"></i>
+                <h3>الضغوط المادية</h3>
+                <p>عارفين حجم التحديات الحالية، وعشان كده بنساعدك تكتسب مهارات تفتحلك أبواب رزق جديدة لتأمين وزيادة دخلك.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-star"></i>
+                <h3>الأحلام المؤجلة</h3>
+                <p>مفيش حلم فات أوانه. هنا هتلاقي الدعم البيئي والاجتماعي والمكان اللي تبدأ فيه شغفك المؤجل من سنين.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                <h3>مجتمع متكامل</h3>
+                <p>"أثر" مش مجرد كورسات… دي مبادرة حقيقية بتغير حياة وبتجمعنا على الخير والدعم الإنساني المتبادل.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="activities" id="activities">
+        <h2 class="section-title">أنشطة المبادرة</h2>
+        <div class="activities-grid">
+            
+            <!-- صفحة الكورسات المفتوحة دائمًا -->
+            <div class="activity-card">
+                <img src="l.jpg" alt="الكورسات">
+                <h3>الكورسات</h3>
+                <p>كورسات قيمة بأسعار رمزية دعماً لكل من يريد التعلم أياً كان هدفك زيادة دخلك أو تطوير الذات.</p>
+                <a href="courses.html" class="btn-activity">اعرف أكتر</a>
+            </div>
+
+            <!-- بقية الأنشطة تم توجيهها مؤقتاً لصفحة قريباً -->
+            <div class="activity-card">
+                <img src="m.jpg" alt="الأنشطة الدينية">
+                <h3>الأنشطة الدينية</h3>
+                <p>أنشطة دينية مختلفة ومشتركة بين أعضاء جروب المسجد لمزيد من التشجيع للتفقه والتقرب إلى الله.</p>
+                <a href="coming-soon.html" class="btn-activity">اعرف أكتر</a>
+            </div>
+
+            <div class="activity-card">
+                <img src="s.jpg" alt="الأنشطة الرياضية">
+                <h3>الأنشطة الرياضية</h3>
+                <p>تمارين وفعاليات حركية من أجل صحة أفضل وحياة مليئة بالنشاط والتوازن.</p>
+                <a href="coming-soon.html" class="btn-activity">اعرف أكتر</a>
+            </div>
+
+            <div class="activity-card">
+                <img src="t.jpg" alt="الرحلات">
+                <h3>الرحلات</h3>
+                <p>رحلات ترفيهية واستكشافية مميزة لتجديد الطاقة وتوسيع الآفاق.</p>
+                <a href="coming-soon.html" class="btn-activity">اعرف أكتر</a>
+            </div>
+
+            <div class="activity-card">
+                <img src="support.jpg" alt="الدعم">
+                <h3>الدعم</h3>
+                <p>جلسات إرشاد وتوجيه نفسي متكامل لمواجهة ضغوط الحياة وبناء شبكة علاقات قوية.</p>
+                <a href="coming-soon.html" class="btn-activity">اعرف أكتر</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="whatsapp-section">
+        <h2 class="section-title">انضم لـ مجتمع أثر على واتساب</h2>
+        <div class="whatsapp-container">
+            <div class="wa-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>جروب أثر العام (المنصة الموحدة)</h3>
+                <p>المكان الموحد لمتابعة كل جديد في كافة أنشطتنا وفعالياتنا، ومساحتنا التفاعلية لتلقي آرائكم، مقترحاتكم ومناقشاتكم المثمرة.</p>
+                <a href="https://chat.whatsapp.com/F95l1kfIuSX0CYbTX0jHz7" target="_blank" class="btn-wa">ادخل جروب أثر العام</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="supervisor-box">
+                <h4>المبادرة تحت إشراف</h4>
+                <img src="White.png" alt="Mohammed Mukhtar - Math & Programming Educator" class="supervisor-logo">
+            </div>
+            <div class="footer-copyright">
+                <p>جميع الحقوق محفوظة لمبادرة أثر © 2026 - لأن الإنسان أثر</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://chat.whatsapp.com/F95l1kfIuSX0CYbTX0jHz7" class="floating-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>

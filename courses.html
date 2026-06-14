@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الكورسات | مبادرة أثر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d4633;
+            --secondary-color: #2e8b57;
+            --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --shadow: 0 10px 30px rgba(13, 70, 51, 0.08);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-back:hover { color: var(--secondary-color); }
+        .navbar .logo img { height: 50px; }
+
+        /* Hero Banner Section */
+        .hero {
+            width: 100%;
+            background-color: var(--white);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: fill;
+            display: block;
+        }
+
+        /* Courses Categories Section */
+        .categories-section {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Course Card Style */
+        .course-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(13, 70, 51, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(13, 70, 51, 0.12);
+            border-color: rgba(46, 139, 87, 0.2);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: #e8f4ed;
+            color: var(--secondary-color);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .course-card:hover .icon-box {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .course-card h3 {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .btn-explore {
+            display: inline-block;
+            width: 100%;
+            padding: 11px 0;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .course-card:hover .btn-explore {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* كارت مميز خاص بالكمبيوتر الجاهز حالياً */
+        .course-card.active-card {
+            border: 2px solid var(--secondary-color);
+            background: linear-gradient(to bottom, #ffffff, #f9fbf9);
+        }
+        .course-card.active-card .btn-explore {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        .course-card.active-card:hover .btn-explore {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .supervisor-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .supervisor-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .supervisor-logo {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .footer-copyright {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .categories-section { padding: 40px 5%; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر العلوي والتنقل -->
+    <nav class="navbar">
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+        <div class="logo">
+            <img src="A.jpg" alt="شعار مبادرة أثر">
+        </div>
+    </nav>
+
+    <!-- البانر المرفق المخصص للكورسات -->
+    <section class="hero">
+        <img src="ChatGPT Image Jun 14, 2026, 01_02_20 AM.png" alt="بانر منصة كورسات أثر" class="hero-banner">
+    </section>
+
+    <!-- قسـم كروت تصنيفات الكورسات التسعة -->
+    <section class="categories-section">
+        <h2 class="section-title">مجالات التميز والتدريب</h2>
+        <p class="section-subtitle">اختر المجال الذي ترغب بتطوير مهاراتك فيه وابدأ رحلتك التعليمية معنا</p>
+        
+        <div class="grid-container">
+            
+            <!-- 1. كارت الكمبيوتر (مفتوح وجاهز للربط) -->
+            <div class="course-card active-card">
+                <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>علوم الحاسوب والكمبيوتر</h3>
+                <p>تعلّم مهارات البرمجة، استخدام البرامج المكتبية، تكنولوجيا المعلومات وتأهيلك للعمل التقني.</p>
+                <a href="computer-courses.html" class="btn-explore">تصفح الكورسات المتاحة</a>
+            </div>
+
+            <!-- 2. لغات -->
+            <div class="course-card">
+                <div class="icon-box"><i class="fa-solid fa-language"></i></div>
+                <h3>اللغات والترجمة</h3>
+                <p>كورسات متكاملة لتطوير مهارات النطق، التحدث، والكتابة باللغات الأجنبية المختلفة.</p>
+                <a href="coming-soon.html" class="btn-explore">قريباً</a>
+            </div>
+
+            <!-- 3. حرف يدوية -->
+            <div class="course-card">
+                <div class="icon-box"><i class="fa-solid fa-scissors"></i></div>
+                <h3>الحرف اليدوية</h3>
+                <p>ورش عمل ودورات تفاعلية لتعلم الخياطة، الأشغال اليدوية وصناعة المنتجات الفريدة لبدء مشروعك.</p>
+                <a href="coming-soon.html" class="btn-explore">قريباً</a>
+            </div>
+
+            <!-- 4. هوايات وفنون -->
+            <div class="course-card">
+                <div class="icon-box"><i class="fa-solid fa-palette"></i></div>
+                <h3>الهوايات والفنون</h3>
+                <p>اكتشف شغفك الفني من خلال دورات الرسم، الخط العربي، الموسيقى وغيرها من الفنون الجميلة.</p>
+                <a href="coming-soon.html" class="btn-explore">قريباً</a>
+            </div>
+
+            <!-- 5. تطوير ذات -->
+            <div class="course-card">
+                <div class="icon-box"><i class="fa-solid fa-user-gear"></i></div>
+                <h3>تطوير الذات وبناء الشخصية</h3>
+                <p>اكتسب مهارات القيادة، التخطيط الشخصي، إدارة الوقت والتواصل الفعّال مع الآخرين.</p>
+                <a href="coming-soon.html" class="btn-explore">قريباً</a>
+            </div>
+
+            <!-- 6. ريادة الأعمال -->
+            <div class="course-card">
+                <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>ريادة الأعمال والمال</h3>
+                <p>تعلم كيفية التخطيط لمشروعك الناشئ، أساسيات التسويق والبيع، وإدارة الشؤون المادية بنجاح.</p>
+                <a href="coming-soon.html" class="btn-explore">قريباً</a>
+            </div>
+
+            <!-- 7. تربية وتعليم -->
+            <div class="course-card">
+                <div class="icon-box"><i class="fa-solid fa-book-open-reader"></i></div>
+                <h3>التربية والتعليم</h3>
+                <p>برامج إرشادية وتدريبية مخصصة لأساليب التربية الحديثة، الدعم الدراسي والمناهج التعليمية المبتكرة.</p>
+                <a href="coming-soon.html" class="btn-explore">قريباً</a>
+            </div>
+
+            <!-- 8. تصوير ومونتاج -->
+            <div class="course-card">
+                <div class="icon-box"><i class="fa-solid fa-camera"></i></div>
+                <h3>التصوير والمونتاج</h3>
+                <p>احترف التقاط الصور وصناعة وتعديل الفيديوهات الرقمية باستخدام أحدث البرامج وأدوات صناعة المحتوى.</p>
+                <a href="coming-soon.html" class="btn-explore">قريباً</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- الفوتر الموحد للمبادرة -->
+    <footer>
+        <div class="footer-content">
+            <div class="supervisor-box">
+                <h4>المبادرة تحت إشراف</h4>
+                <img src="White.png" alt="Mohammed Mukhtar - Math & Programming Educator" class="supervisor-logo">
+            </div>
+            <div class="footer-copyright">
+                <p>جميع الحقوق محفوظة لمبادرة أثر © 2026 - لأن الإنسان أثر</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

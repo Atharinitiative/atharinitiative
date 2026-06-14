@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن المبادرة | مبادرة أثر</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d4633;
+            --secondary-color: #2e8b57;
+            --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --shadow: 0 10px 30px rgba(13, 70, 51, 0.08);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-back:hover { color: var(--secondary-color); }
+        .navbar .logo img { height: 50px; }
+
+        /* Header */
+        .page-header {
+            background: linear-gradient(rgba(13, 70, 51, 0.85), rgba(13, 70, 51, 0.85)), url('l.jpg') no-repeat center center/cover;
+            padding: 60px 5%;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
+
+        /* Content Container */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 60px 20px; }
+
+        .about-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-right: 4px solid var(--secondary-color);
+            padding-right: 15px;
+        }
+
+        /* كارت تعريفي متطور يدمج صورتك الشخصية بشكل احترافي */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: #e8f4ed;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            box-shadow: 0 4px 15px rgba(13, 70, 51, 0.15);
+            flex-shrink: 0;
+        }
+
+        .profile-info h3 { color: var(--primary-color); font-size: 1.4rem; margin-bottom: 5px; font-weight: 700; }
+        .profile-info p { color: var(--secondary-color); font-weight: 700; font-size: 0.95rem; }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .team-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px dashed var(--secondary-color);
+        }
+
+        .team-card i { font-size: 2rem; color: var(--secondary-color); margin-bottom: 10px; }
+        .team-card h4 { color: var(--primary-color); margin-bottom: 5px; }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .supervisor-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .supervisor-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .supervisor-logo {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .footer-copyright {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        @media(max-width: 768px) {
+            .profile-card { flex-direction: column; text-align: center; padding: 20px; }
+            .about-section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+        <div class="logo">
+            <img src="A.jpg" alt="أثر">
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>عن مبادرة أثر</h1>
+        <p>رحلة بناء الإنسان وترك الأثر الطيب</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- قسم صاحب المبادرة المحدّث بصورتك الشخصية المباشرة -->
+        <div class="about-section">
+            <h2>كلمة مؤسس المبادرة</h2>
+            <div class="profile-card">
+                <img src="mine.png" alt="م. محمد أحمد مختار" class="profile-img">
+                <div class="profile-info">
+                    <h3>م. محمد أحمد مختار</h3>
+                    <p>مهندس مدني & معلم علوم الـ ICT والبرمجة والرياضيات (Math)</p>
+                </div>
+            </div>
+            <p>لكل منا في هذه الحياة مسار، ولكن الأجمل هو المسار الذي نترك فيه خلفنا أثراً ينفع الناس ويبقى. من واقع عملي وشغفي بالتعليم، لمست كيف يمكن للمهارة الصحيحة والعلم النافع أن يغيرا حياة إنسان بالكامل، وينقلاه إلى سوق العمل الفعلي وزيادة الدخل وتطوير الذات.</p>
+        </div>
+
+        <!-- قسم العمل الجماعي والمجتمع -->
+        <div class="about-section">
+            <h2>رؤيتنا: مجتمع متكامل وليس مجهوداً فردياً</h2>
+            <p>تأسست <strong>مبادرة أثر</strong> برؤية واضحة: ألا يثني ضيق الحال أو تسارع وتيرة الحياة أحداً عن التعلم والتقرب إلى الله وصناعة التغيير. ونؤمن تماماً بأن يد الله مع الجماعة؛ لذلك، فإن "أثر" عبارة عن تلاحم مجتمعي فريد يقوده فريق مخلص من المتطوعين، وأعضاء مجتمع المسجد الأفاضل الذين يسخرون وقتهم وجهدهم لتنظيم ومتابعة الأنشطة المختلفة.</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>التطوير الأكاديمي</h4>
+                    <p style="font-size: 0.85rem; color:#666;">كورسات لغات وتكنولوجيا بأسعار رمزية.</p>
+                </div>
+                <div class="team-card">
+                    <i class="fa-solid fa-mosque"></i>
+                    <h4>الروح الجماعية</h4>
+                    <p style="font-size: 0.85rem; color:#666;">أنشطة دينية مشتركة برعاية جروب المسجد.</p>
+                </div>
+                <div class="team-card">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h4>بناء الإنسان</h4>
+                    <p style="font-size: 0.85rem; color:#666;">أنشطة رياضية، ترفيهية ودعم نفسي متكامل.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- الفوتر الموحد مع لوجو الإشراف بصيغة White.png المحدثة -->
+    <footer>
+        <div class="footer-content">
+            <div class="supervisor-box">
+                <h4>المبادرة تحت إشراف</h4>
+                <img src="White.png" alt="Mohammed Mukhtar - Math & Programming Educator" class="supervisor-logo">
+            </div>
+            <div class="footer-copyright">
+                <p>جميع الحقوق محفوظة لمبادرة أثر © 2026 - لأن الإنسان أثر</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | مبادرة أثر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d4633;
+            --secondary-color: #2e8b57;
+            --light-bg: #f4f7f5;
+            --white: #ffffff;
+            --text-dark: #2d3748;
+            --shadow: 0 10px 30px rgba(13, 70, 51, 0.08);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-back:hover { color: var(--secondary-color); }
+        .navbar .logo img { height: 50px; }
+
+        /* Header */
+        .page-header {
+            background: linear-gradient(rgba(13, 70, 51, 0.85), rgba(13, 70, 51, 0.85)), url('l.jpg') no-repeat center center/cover;
+            padding: 60px 5%;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+        }
+
+        /* Contact Info Card */
+        .contact-info {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item .icon {
+            background: #e8f4ed;
+            color: var(--secondary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .info-item text h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .info-item text p, .info-item text a {
+            color: #555;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .info-item text a:hover { color: var(--secondary-color); }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form-container h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8e4;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--secondary-color);
+            background-color: #fbfdfc;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #25d366;
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-submit:hover {
+            background-color: #20ba56;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .supervisor-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .supervisor-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .supervisor-logo {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .footer-copyright {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        @media(max-width: 768px) {
+            .container { grid-template-columns: 1fr; gap: 30px; }
+            .contact-form-container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+        <div class="logo">
+            <img src="A.jpg" alt="أثر">
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>تواصل معنا</h1>
+        <p>يسعدنا دائماً استقبال استفساراتكم وآرائكم حول المبادرة</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="contact-info">
+            <div>
+                <h2>قنوات الاتصال المباشر</h2>
+                <p style="color: #666; font-size: 0.9rem;">يمكنك التواصل معنا مباشرة عبر أي من الوسائل التالية:</p>
+            </div>
+
+            <div class="info-item">
+                <div class="icon"><i class="fa-brands fa-whatsapp" style="color: #25d366;"></i></div>
+                <text>
+                    <h3>واتساب المبادرة</h3>
+                    <a href="https://wa.me/201200109995" target="_blank">01200109995 (20+)</a>
+                </text>
+            </div>
+
+            <div class="info-item">
+                <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                <text>
+                    <h3>البريد الإلكتروني</h3>
+                    <a href="mailto:athar.initiative2026@gmail.com">athar.initiative2026@gmail.com</a>
+                </text>
+            </div>
+
+            <div class="info-item">
+                <div class="icon"><i class="fa-solid fa-globe"></i></div>
+                <text>
+                    <h3>مقر المبادرة</h3>
+                    <p>مبادرة تفاعلية رقمية (عن بُعد) - نصلك أينما كنت.</p>
+                </text>
+            </div>
+
+            <div class="info-item">
+                <div class="icon"><i class="fa-solid fa-users"></i></div>
+                <text>
+                    <h3>المجتمع التفاعلي</h3>
+                    <a href="https://chat.whatsapp.com/F95l1kfIuSX0CYbTX0jHz7" target="_blank">اضغط هنا للانضمام لجروب واتساب الموحد</a>
+                </text>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <h2>أرسل لنا رسالة سريعة</h2>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="name">الاسم الكريم</label>
+                    <input type="text" id="name" placeholder="اكتب اسمك هنا" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">نص الرسالة أو الاستفسار</label>
+                    <textarea id="message" rows="5" placeholder="اكتب ما تود مشاركته معنا هنا..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fa-brands fa-whatsapp"></i> إرسال عبر الواتساب
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="supervisor-box">
+                <h4>المبادرة تحت إشراف</h4>
+                <img src="White.png" alt="Mohammed Mukhtar - Math & Programming Educator" class="supervisor-logo">
+            </div>
+            <div class="footer-copyright">
+                <p>جميع الحقوق محفوظة لمبادرة أثر © 2026 - لأن الإنسان أثر</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // جلب البيانات المدخلة
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            
+            // رقم تليفونك بصيغته الدولية الصحيحة
+            const phoneNumber = "201200109995";
+            
+            // صياغة نص الرسالة ليكون منسقاً واحترافياً عند وصوله لك
+            const text = `السلام عليكم ورحمة الله وبركاته،%0A%0A*اسم المرسل:* ${name}%0A*الرسالة:*%0A${message}`;
+            
+            // فتح الرابط المباشر للواتساب
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+
+</body>
+</html>
